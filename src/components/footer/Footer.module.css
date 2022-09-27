@@ -1,0 +1,34 @@
+@media (max-width: 425px) {
+	.wrapper {
+		flex-direction: column-reverse;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 15px 15px;
+	}
+	.resml {
+		margin-left: 2rem !important;
+	}
+	.footerNav {
+		margin-left: 10px;
+	}
+	.footerLogo {
+		margin-left: 1rem!important;
+	}
+	.order{
+		order: -1;
+	}
+}
+.footerNav {
+	margin-left: 10px;
+}
+
+.wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+.wrapper {
+	padding: 0px 15px;
+}
+.fNavlinks {
+}

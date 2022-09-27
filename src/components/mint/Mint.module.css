@@ -1,0 +1,35 @@
+.mintBtnBgColor {
+  margin-top: 50px;
+    padding: 20px 183px;
+    background: rgb(114, 255, 121);
+    background-blend-mode: lighten;
+    border-radius: 13px;
+    color: #000;
+    font-size: 2rem;
+}
+@media (max-width: 425px) {
+  .mintBtnBgColor {
+    padding: 20px 21px!important;
+  }
+}
+@media (max-width: 375px) {
+  .mintBtnBgColor {
+    padding: 20px 21px!important;
+  }
+}
+@media (max-width: 320px) {
+  .mintBtnBgColor {
+    padding: 20px 21px!important;
+  }
+}
+@media (max-width: 220px) {
+  .mintBtnBgColor {
+    padding: 17px 5px!important;
+  }
+}
+@media (max-width: 768px) {
+  .mintBtnBgColor {
+    text-align: center;
+  padding: 20px 101px;
+  }
+}

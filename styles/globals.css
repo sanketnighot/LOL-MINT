@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bakbak One";
+  src: url("/fonts/BakbakOne-Regular.ttf");
+}
+
+body {
+
+  font-family: "Bakbak One";
+  background-color: black;
+  color: white;
+  /* background-image: url("/images/background1.jpg"); */
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.25s ease-out;
+}
+.heading {
+  font-size: 32px;
+  line-height: 45px;
+}
+
+.RoadMapImage image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 200px !important;
+  max-height: 200px !important;
+}

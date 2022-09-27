@@ -1,0 +1,17 @@
+.bgImage {
+  padding: 80px 0px;
+	background-image: url("/images/background1.jpg");
+	background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .bHeading {
+    padding: 0px 20px!important;
+  }
+}
+@media (max-width: 320px) {
+  .vipPass {
+padding: 0px 10px!important;
+  }
+}
+

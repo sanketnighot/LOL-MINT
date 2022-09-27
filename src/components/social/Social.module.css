@@ -1,0 +1,51 @@
+.socialBtn{
+    margin: 0px 10px;
+    width: 60px;
+    border: 1px solid rgb(122, 118, 118);
+    height: 60px;
+    background: rgba(248, 246, 246, 0.1);
+  
+    backDrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.whislistBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 200px;
+    background: #00ffa3;
+    border: none;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    font-family: 'Bakbak One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #111;
+    cursor: pointer;
+}
+.discordBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 200px;
+    background: #5865f2;
+    border: none;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    font-family: 'Bakbak One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
