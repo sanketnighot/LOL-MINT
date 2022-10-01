@@ -56,10 +56,10 @@ const Banner = () => {
             className={`w-full h-auto overflow-hidden object-cover text-center`}>
             <Image
               className={`${styles.vipPass}`}
-              src={images.publicsaleImage}
-              alt="vip pass"
-              width={700}
-              height={400}
+              src={images.lolCardImage}
+              alt="LORD"
+              width={280}
+              height={280*1.45}
               priority={true}
             />
 

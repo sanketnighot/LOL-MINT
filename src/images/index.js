@@ -27,6 +27,7 @@ import publicsale from "./publicsale.gif";
 import vipPassNew from "./vipPassNew.png";
 import vipPassGif from "./vipPassGif.gif";
 import NFTPassGif from "./NFTPass.gif";
+import lolCard from "./lordcard.png";
 
 export {
   logo as logoImage,
@@ -58,5 +59,6 @@ export {
   landLadyNft as landLadyNftImage,
   presale as presaleImage,
   publicsale as publicsaleImage,
+  lolCard as lolCardImage
   
 };
