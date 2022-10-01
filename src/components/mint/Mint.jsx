@@ -29,7 +29,7 @@ const Mint = () => {
 
   contractRef.current = contract;
 
-  useEffect( async ()=> {
+  useEffect(()=> {
 		const interval = setInterval( async () => {
       const maxMintAmount = await contractRef.current.maxMintAmount();
       const nftPrice = await contractRef.current.mintPrice();
@@ -92,7 +92,7 @@ const Mint = () => {
           <br/><span>You can mint maximum {maxMint} Lord NFTs per wallet </span>
 
         </div>
-        {(nftBalance >= maxMint) ? <div
+        {(nftBalance <= maxMint) ? <div
           onClick={() => (isConnected ? mint() : handleModal())}
           className="text-center mt-10 mb-10">
           <span className={`${styles.mintBtnBgColor} cursor-pointer`}>
@@ -103,7 +103,7 @@ const Mint = () => {
               : "Connect Wallet"}
           </span>
           <WalletModal />
-        </div> : <div className="text-center mt-10 mb-10"><h1>This wallet has already minted {nftBalance} Lord NFT's</h1></div>}
+        </div> : <div className="text-center mt-10 mb-10"><h1>This wallet has already minted {nftBalance} Lord NFTs</h1></div>}
         
       </div>
     </div>
