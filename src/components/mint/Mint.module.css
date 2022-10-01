@@ -33,3 +33,13 @@
   padding: 20px 101px;
   }
 }
+
+.countBtnBgColor {
+  margin-top: 50px;
+    padding: 10px 50px;
+    background: rgba(64, 255, 0, 0.493);
+    background-blend-mode: lighten;
+    border-radius: 13px;
+    color: #000;
+    font-size: 2rem;
+}

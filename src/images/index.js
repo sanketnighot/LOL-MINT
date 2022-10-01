@@ -23,6 +23,7 @@ import lolMint from "./lol-mint.webp";
 import lolTournamentPass from "./lol-tournament-pass.webp";
 import landLadyNft from "./landlady-nft.webp";
 import presale from "./presale.jpg";
+import publicsale from "./publicsale.gif";
 import vipPassNew from "./vipPassNew.png";
 import vipPassGif from "./vipPassGif.gif";
 import NFTPassGif from "./NFTPass.gif";
@@ -56,4 +57,6 @@ export {
   lolTournamentPass as lolTournamentPassImage,
   landLadyNft as landLadyNftImage,
   presale as presaleImage,
+  publicsale as publicsaleImage,
+  
 };

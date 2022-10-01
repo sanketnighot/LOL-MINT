@@ -33,7 +33,6 @@ const Banner = () => {
     }
   }, [isConnected]);
 
-  console.log({ totalMinted });
 
   useEffect(() => {
     const nftsmintedCountInterval = setInterval(async function () {
@@ -49,21 +48,22 @@ const Banner = () => {
       <div className="row">
         <div className={`${styles.bHeading} text-center`}>
           <span className="text-2xl md:text-4xl">
-            Claim your LOL VIP Pass NFT!
+            Claim your LOL Lord NFT Now!
           </span>
         </div>
         <div className="mt-8 w-124">
           <div
-            className={`w-full h-auto overflow-hidden object-cover text-center`}
-          >
+            className={`w-full h-auto overflow-hidden object-cover text-center`}>
             <Image
               className={`${styles.vipPass}`}
-              src={images.NFTPassGifImage}
+              src={images.publicsaleImage}
               alt="vip pass"
-              width={400}
+              width={700}
               height={400}
               priority={true}
             />
+
+
           </div>
         </div>
         <div className="mint mt-2 mb-2">
@@ -72,7 +72,7 @@ const Banner = () => {
         <div className="text-center">
           {isConnected ? (
             <span className="text-2xl">
-              {totalMinted}/15 VIP Passes Minted{" "}
+              {totalMinted}/2000 Lords Minted{" "}
             </span>
           ) : (
             // <span className="text-2xl">10 VIP Passes Available </span>

@@ -6,7 +6,7 @@ const Home = () => {
     <div className="container-fluid mx-auto">
       <Banner />
       {/* <About /> */}
-
+{/* 
       <Roadmap
         textHeading=" Why become a LOL “VIP”?"
         textBody="Perks of vip pass"
@@ -53,7 +53,7 @@ const Home = () => {
         textParaHeading=" Early Access to the metaverse "
         textPara1=" *  You will be the first one to experience LOL metaverse and their parties !"
         textPara2=" *  Able to play first P2E tournament on LOL metaverse and win upto 10 000$."
-      />
+      /> */}
       <Footer />
     </div>
   );
