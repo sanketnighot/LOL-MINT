@@ -37,7 +37,7 @@ const Mint = () => {
       setMaxMint(parseInt(maxMintAmount));
 			setPrice(parseInt(nftPrice))
       setBalance(parseInt(balance));
-			}, 7000);
+			}, 1000);
 		return () => clearInterval(interval);}
   );
     
