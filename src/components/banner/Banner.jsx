@@ -43,13 +43,13 @@ const Banner = () => {
   //   }, 5 * 100);
   // }, [fetchTotalSupply]);
   // Set the date we're counting down to
-  var countDownDate = new Date("Oct 4, 2022 19:00:00").getTime();
+  var countDownDate =  new Date("Oct 4, 2022 13:30:00 UTC").getTime()
         
   // Update the count down every 1 second
   var x = setInterval(function() {
   
     // Get today's date and time
-    var now = new Date().getTime();
+    var now = Date.parse(new Date().toUTCString())
   
     // Find the distance between now and the count down date
     var distance = countDownDate - now;

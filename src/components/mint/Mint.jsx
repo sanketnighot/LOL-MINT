@@ -1,7 +1,6 @@
 import toast from "react-hot-toast";
-import { ethers } from "ethers";
 import { useState, useContext, useRef, useEffect } from "react";
-import { useAccount, useContract, useSigner, useNetwork } from "wagmi";
+import { useAccount, useContract, useSigner, useNetwork, ConnectorAlreadyConnectedError } from "wagmi";
 import { UserContext } from "../../context/UserContext";
 import { mainnetAddress, ABI } from "../../constants";
 import styles from "./Mint.module.css";
@@ -17,7 +16,7 @@ const Mint = () => {
   const [loading, setLoading] = useState(false);
   const [maxMint, setMaxMint] = useState(5);
   const [price, setPrice] = useState(5);
-  const [nftBalance, setBalance] = useState(0);
+  const [whitelistStatus, setWhitelistStatus] = useState(false);
 
   const contractRef = useRef();
 
@@ -31,12 +30,15 @@ const Mint = () => {
 
   useEffect(()=> {
 		const interval = setInterval( async () => {
-      const maxMintAmount = await contractRef.current.maxMintAmount();
-      const nftPrice = await contractRef.current.mintPrice();
-      const balance = await contractRef.current.balanceOf(address);
-      setMaxMint(parseInt(maxMintAmount));
-			setPrice(parseInt(nftPrice))
-      setBalance(parseInt(balance));
+      if (address) {
+        const maxMintAmount = await contractRef.current.maxMintAmount();
+        const nftPrice = await contractRef.current.mintPrice();
+        const status = await contractRef.current.whitelistStatus();
+        setMaxMint(parseInt(maxMintAmount));
+        setPrice(parseInt(nftPrice));
+        setWhitelistStatus(status);
+      }
+      
 			}, 1000);
 		return () => clearInterval(interval);}
   );
@@ -45,15 +47,24 @@ const Mint = () => {
   const mint = async () => {
     setLoading(true);
     try {
-      const proof = await axios.get(`https://lordapi.herokuapp.com/api/getMerkleProof?address=${address}`);
-      if (proof.data !== "Invalid Address") {
-          await (
-          await contract.mint(address, count, proof.data, {value: (count * price).toString() })
-        ).wait();
-        toast.success("Successfully Minted");
+      if (!whitelistStatus) {
+        const proof = await axios.get(`https://lordapi.herokuapp.com/api/getMerkleProof?address=${address}`);
+        if (proof.data !== "Invalid Address") {
+            await (
+            await contract.mint(address, count, proof.data, {value: (count * price).toString() })
+          ).wait();
+          toast.success("Successfully Minted");
+        } else {
+          toast.error("This address is not whitelisted");
+          // You cannot mint more than count nfts per wallet.
+        }
       } else {
-        toast.error("This address is not whitelisted");
+        await (
+          await contract.mint(address, count, [], {value: (count * price).toString() })
+          ).wait();
+          toast.success("Successfully Minted");
       }
+      
       
     } catch (err) {
       if (chain?.id !== 1) {
@@ -64,7 +75,7 @@ const Mint = () => {
         toast.error("Insufficient funds to complete the transaction");
       } else {
         console.log(err)
-        toast.error("Something went wrong");
+        toast.error(err.message);
       }
     }
     setLoading(false);
