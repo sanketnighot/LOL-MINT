@@ -1,4 +1,4 @@
-export const mainnetAddress = "0xbB5B172275D9eaEc4E6E071937039E84299D74ac";
+export const mainnetAddress = "0xBf628d5dd1e3eeb5b6dC2e7D85405Ac0399925af";
 
 export const ABI = [
 	{
