@@ -56,8 +56,8 @@ const Mint = () => {
       }
       
     } catch (err) {
-      if (chain?.id !== 5) {
-        toast.error("Switch to Goerli Test Network");
+      if (chain?.id !== 1) {
+        toast.error("Switch to Mainnet Network");
       } else if (err?.code == 4001) {
         toast.error("User rejected the transaction");
       } else if (err?.error?.code == -32000) {
@@ -81,18 +81,18 @@ const Mint = () => {
   return (
     <div className="container mx-auto">
       <div className="row">
-      <div className="text-center mt-10 mb-10">
+      <div className="text-center mt-1 mb-1">
           <span onClick={() => (updateCount("subtract"))} className={`${styles.countBtnBgColor} cursor-pointer`}>
-          -1
+          -
           </span>
-          <span style={{fontSize:"350%"}}> {count} Lords </span>
+          <span style={{fontSize:"350%"}}> {count} </span>
           <span onClick={() => (updateCount("add"))} className={`${styles.countBtnBgColor} cursor-pointer`}>
-          +1
+          +
           </span>
           <br/><span>You can mint maximum {maxMint} Lord NFTs per wallet </span>
 
         </div>
-        {(nftBalance <= maxMint) ? <div
+        <div
           onClick={() => (isConnected ? mint() : handleModal())}
           className="text-center mt-10 mb-10">
           <span className={`${styles.mintBtnBgColor} cursor-pointer`}>
@@ -103,7 +103,7 @@ const Mint = () => {
               : "Connect Wallet"}
           </span>
           <WalletModal />
-        </div> : <div className="text-center mt-10 mb-10"><h1>This wallet has already minted {nftBalance} Lord NFTs</h1></div>}
+        </div>
         
       </div>
     </div>

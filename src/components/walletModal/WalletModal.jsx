@@ -3,7 +3,7 @@ import { useAccount, useConnect, useNetwork, useSwitchNetwork } from "wagmi";
 
 import { UserContext } from "../../context/UserContext";
 
-const CHAIN_ID = 5;
+const CHAIN_ID = 1;
 
 const WalletModal = () => {
   const { isModalOpen, handleModal } = useContext(UserContext);
