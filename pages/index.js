@@ -1,9 +1,16 @@
 import { Footer, About, Roadmap, Banner } from "../src/components";
 import * as images from "../src/images";
-
+window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-DGGK5H1966');
 const Home = () => {
   return (
     <div className="container-fluid mx-auto">
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-DGGK5H1966"></script>
+     
+        
+    
       <Banner />
       {/* <About /> */}
 {/* 
