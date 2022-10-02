@@ -81,7 +81,9 @@ const Banner = () => {
           <span className="text-2xl md:text-4xl">
             Claim your LOL Lord NFT!
           </span>
+          
           <h1 className="text-2xl md:text-4xl" id="demo"></h1>
+          <h1 style={{fontSize:"120%"}}>(4th October, 13:30 UTC)</h1>
         </div>
         
         <div className="mt-8 w-124">

@@ -42,7 +42,7 @@ const Mint = () => {
         setContractStatus(contractStatus);
       }
       
-			}, 1000);
+			}, 800);
 		return () => clearInterval(interval);}
   );
     
@@ -107,8 +107,9 @@ const Mint = () => {
           <span onClick={() => (updateCount("add"))} className={`${styles.countBtnBgColor} cursor-pointer`}>
           +
           </span>
-          <br/><span>You can mint maximum {maxMint} Lord NFTs per wallet </span>
-
+          <br/><br/><h1 style={{fontSize:"150%"}}>WL Mint: 0.15 ETH</h1>
+          <span>You can mint maximum {maxMint} Lord NFTs per wallet </span>
+         
         </div>
         <div
           onClick={() => (isConnected ? mint() : handleModal())}
@@ -117,7 +118,7 @@ const Mint = () => {
             {isConnected
               ? loading
                 ? "Minting...."
-                : "Mint"
+                : `Mint [${(count * (price/1000000000000000000)).toFixed(2)} ETH]`
               : "Connect Wallet"}
           </span>
           <WalletModal />
