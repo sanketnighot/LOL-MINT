@@ -17,6 +17,7 @@ const Mint = () => {
   const [maxMint, setMaxMint] = useState(5);
   const [price, setPrice] = useState(5);
   const [whitelistStatus, setWhitelistStatus] = useState(false);
+  const [contractStatus, setContractStatus] = useState(true);
 
   const contractRef = useRef();
 
@@ -34,9 +35,11 @@ const Mint = () => {
         const maxMintAmount = await contractRef.current.maxMintAmount();
         const nftPrice = await contractRef.current.mintPrice();
         const status = await contractRef.current.whitelistStatus();
+        const contractStatus = await contractRef.current.paused();
         setMaxMint(parseInt(maxMintAmount));
         setPrice(parseInt(nftPrice));
         setWhitelistStatus(status);
+        setContractStatus(contractStatus);
       }
       
 			}, 1000);
@@ -47,22 +50,26 @@ const Mint = () => {
   const mint = async () => {
     setLoading(true);
     try {
-      if (!whitelistStatus) {
-        const proof = await axios.get(`https://lordapi.herokuapp.com/api/getMerkleProof?address=${address}`);
-        if (proof.data !== "Invalid Address") {
-            await (
-            await contract.mint(address, count, proof.data, {value: (count * price).toString() })
-          ).wait();
-          toast.success("Successfully Minted");
+      if (!contractStatus) {
+          if (!whitelistStatus) {
+          const proof = await axios.get(`https://lordapi.herokuapp.com/api/getMerkleProof?address=${address}`);
+          if (proof.data !== "Invalid Address") {
+              await (
+              await contract.mint(address, count, proof.data, {value: (count * price).toString() })
+            ).wait();
+            toast.success("Successfully Minted");
+          } else {
+            toast.error("This address is not whitelisted");
+            // You cannot mint more than count nfts per wallet.
+          }
         } else {
-          toast.error("This address is not whitelisted");
-          // You cannot mint more than count nfts per wallet.
+          await (
+            await contract.mint(address, count, [], {value: (count * price).toString() })
+            ).wait();
+            toast.success("Successfully Minted");
         }
       } else {
-        await (
-          await contract.mint(address, count, [], {value: (count * price).toString() })
-          ).wait();
-          toast.success("Successfully Minted");
+        toast.error("Minting has not started yet");
       }
       
       
@@ -75,7 +82,7 @@ const Mint = () => {
         toast.error("Insufficient funds to complete the transaction");
       } else {
         console.log(err)
-        toast.error(err.message);
+        toast.error(err.message.reason);
       }
     }
     setLoading(false);
