@@ -16,7 +16,7 @@ const Footer = () => (
             </div>
             <p className={`ml-20 ${styles.resml}`}>Copyright &copy; 2022 LOL</p>
           </div>
-
+{/* 
           <div
             className={`${styles.fNavlinks}flex-auto flex-nowrap  mt-20 text-center`}
           >
@@ -27,7 +27,7 @@ const Footer = () => (
             </span>
             <span className={`${styles.footerNav} cursor pointer`}>TEAM</span>
             <span className={`${styles.footerNav} cursor pointer`}>FAQ</span>
-          </div>
+          </div> */}
         </div>
 
         <div />
