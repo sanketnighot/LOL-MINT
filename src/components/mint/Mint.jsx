@@ -112,14 +112,9 @@ const Mint = () => {
          
         </div>
         <div
-          onClick={() => (isConnected ? mint() : handleModal())}
           className="text-center mt-10 mb-10">
           <span className={`${styles.mintBtnBgColor} cursor-pointer`}>
-            {isConnected
-              ? loading
-                ? "Minting...."
-                : `Mint [${(count * (price/1000000000000000000)).toFixed(2)} ETH]`
-              : "Connect Wallet"}
+            SOLD OUT!
           </span>
           <WalletModal />
         </div>
